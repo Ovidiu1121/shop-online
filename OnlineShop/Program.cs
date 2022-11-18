@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace OnlineShop
 {
     internal static class Program
@@ -8,8 +10,18 @@ namespace OnlineShop
         [STAThread]
         static void Main()
         {
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new FrmHome());
+
+            ControlCustomer c = new ControlCustomer();
+
+           Customer a=new Customer(12,"da","dee","wf");
+
+            c.add(a);
+            c.salvareFisier();
+
+            Debug.WriteLine(c.afisare());
+
         }
     }
 }
