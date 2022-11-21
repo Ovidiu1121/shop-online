@@ -80,6 +80,45 @@ namespace OnlineShop
 
         }
 
+        public void delete(int id)
+        {
+
+            for(int i=0;i<=lista.Count-1;i++)
+            {
+                if (lista[i].getId().Equals(id))
+                {
+                    lista.RemoveAt(i);
+                    i--;
+                }
+            }
+
+        }
+
+        public Customer returnCustomerById(int id)
+        {
+
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getId().Equals(id))
+                {
+                    return lista[i];
+                }
+            }
+            return null;
+        }
+
+        public void update(int id, Customer newCustomer)
+        {
+
+            Customer old=returnCustomerById(id);
+
+            old.setEmail(newCustomer.getEmail());
+            old.setName(newCustomer.getName());
+            old.setPassword(newCustomer.getPassword());
+
+        }
+
+
 
     }
 }

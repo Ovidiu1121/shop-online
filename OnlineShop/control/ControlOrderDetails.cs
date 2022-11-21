@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace OnlineShop
 {
-    internal class ControlProduct
+    internal class ControlOrderDetails
     {
-        private List<Product> lista=new List<Product>();
-        public string path = Application.StartupPath+@"/data_product/products.txt";
 
-        public ControlProduct()
+        private List<OrderDetails> lista=new List<OrderDetails>();
+        public string path = Application.StartupPath+@"/data_orderDetails/orderDetails.txt";
+
+        public ControlOrderDetails()
         {
             this.load();
+
         }
 
         public void load()
@@ -25,9 +27,11 @@ namespace OnlineShop
 
             while ((line=reader.ReadLine())!=null)
             {
-                Product p = new Product(line);
-                lista.Add(p);
+                OrderDetails o = new OrderDetails(line);
+                lista.Add(o);
             }
+            reader.Close();
+
         }
 
         public string afisare()
@@ -55,7 +59,6 @@ namespace OnlineShop
             text+=lista[i].save();
 
             return text;
-
         }
 
         public void salvareFisier()
@@ -68,7 +71,7 @@ namespace OnlineShop
             writer.Close();
         }
 
-        public void add(Product x)
+        public void add(OrderDetails x)
         {
 
             lista.Add(x);
@@ -89,7 +92,7 @@ namespace OnlineShop
 
         }
 
-        public Product returnProductById(int id)
+        public OrderDetails returnOrderDetailsById(int id)
         {
 
             for (int i = 0; i<lista.Count; i++)
@@ -102,18 +105,20 @@ namespace OnlineShop
             return null;
         }
 
-        public void update(int id, Product newProduct)
+        public void update(int id, OrderDetails newOrderDetails)
         {
 
-            Product old = returnProductById(id);
+            OrderDetails old = returnOrderDetailsById(id);
 
-            old.setName(newProduct.getName());
-            old.setImage(newProduct.getImage());
-            old.setPrice(newProduct.getPrice());
-            old.setStock(newProduct.getStock());
-            
+            old.setOrderId(newOrderDetails.getOrderId());
+            old.setQuantity(newOrderDetails.getQuantity());
+            old.setPrice(newOrderDetails.getPrice());
+            old.setProductId(newOrderDetails.getProdcutId());
 
         }
+
+
+
 
     }
 }
