@@ -5,5 +5,8 @@
     <Compile Update="FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Mockup\MockupMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
