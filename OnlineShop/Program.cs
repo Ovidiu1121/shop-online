@@ -13,11 +13,12 @@ namespace OnlineShop
             //ApplicationConfiguration.Initialize();
             //Application.Run(new FrmHome());
 
-            ControlCustomer c = new ControlCustomer();
+            ControlOrderDetails c=new ControlOrderDetails();
 
-           Customer a=new Customer(12,"da","dee","wf");
+            OrderDetails a=new OrderDetails(534,12,3,1,2);
 
-            c.add(a);
+            OrderDetails b = new OrderDetails(534, 22222, 3222, 122, 22);
+            c.update(534, b);
             c.salvareFisier();
 
             Debug.WriteLine(c.afisare());
