@@ -115,5 +115,10 @@ namespace OnlineShop
 
         }
 
+        public List<Product> getList()
+        {
+            return lista;
+        }
+
     }
 }

@@ -2,8 +2,26 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="FrmHome.cs">
+    <Compile Update="Forms\FrmHome.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Mockups\MockupCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Mockups\MockupMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlChooseProduct.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlProductsMain.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlCard.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
 </Project>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OnlineShop
 {
-    public partial class FrmHome : Form
+    public partial class MockupCard : Form
     {
-        public FrmHome()
+        public MockupCard()
         {
             InitializeComponent();
         }
