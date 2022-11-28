@@ -13,19 +13,21 @@ namespace OnlineShop
         private string image;
         private int price;
         private int stock;
+        private string category;
 
         public Product()
         {
 
         }
 
-        public Product(int id, string name, string image, int price, int stock)
+        public Product(int id, string name, string image, int price, int stock, string category)
         {
             this.id = id;
             this.name = name;
             this.image = image;
             this.price = price;
             this.stock = stock;
+            this.category = category;
 
         }
 
@@ -38,6 +40,7 @@ namespace OnlineShop
             this.image = a[2];
             this.price = int.Parse(a[3]);
             this.stock = int.Parse(a[4]);
+            this.category = a[5];
 
         }
 
@@ -50,7 +53,8 @@ namespace OnlineShop
             text+=this.name+" ";
             text+=this.image+" ";
             text+=this.price.ToString()+" ";
-            text+=this.stock.ToString()+"\n";
+            text+=this.stock.ToString()+" ";
+            text+=this.category+"\n";
 
             return text;
         }
@@ -105,6 +109,16 @@ namespace OnlineShop
             this.stock=stock;
         }
 
+        public string getCategory()
+        {
+            return this.category;
+        }
+
+        public void setCategory(string category)
+        {
+            this.category=category;
+        }
+
         public string save()
         {
 
@@ -114,7 +128,8 @@ namespace OnlineShop
             text+=this.name+",";
             text+=this.image+",";
             text+=this.price.ToString()+",";
-            text+=this.stock.ToString();
+            text+=this.stock.ToString()+",";
+            text+=this.category;
 
             return text;
         }
