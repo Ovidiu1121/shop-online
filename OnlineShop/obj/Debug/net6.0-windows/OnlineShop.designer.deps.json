@@ -5,7 +5,42 @@
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v6.0": {}
+    ".NETCoreApp,Version=v6.0": {
+      "FontAwesome.Sharp/5.15.4": {
+        "runtime": {
+          "lib/net5.0-windows7.0/FontAwesome.Sharp.dll": {
+            "assemblyVersion": "5.15.4.0",
+            "fileVersion": "5.15.4.0"
+          }
+        }
+      },
+      "FontAwesome.Sharp.Pro/5.15.4": {
+        "dependencies": {
+          "FontAwesome.Sharp": "5.15.4"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/FontAwesome.Sharp.Pro.dll": {
+            "assemblyVersion": "5.15.4.0",
+            "fileVersion": "5.15.4.0"
+          }
+        }
+      }
+    }
   },
-  "libraries": {}
+  "libraries": {
+    "FontAwesome.Sharp/5.15.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IqJe1IQas6tSVXMNHTWA/NJeP7azyxDTk6DCB+NMXOOED2F07IYI9nvfB1HP83r4yh5cntZoTdwSpIraA5XoXw==",
+      "path": "fontawesome.sharp/5.15.4",
+      "hashPath": "fontawesome.sharp.5.15.4.nupkg.sha512"
+    },
+    "FontAwesome.Sharp.Pro/5.15.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZLw6OwpPrSh/gSyfpGhezqzVfe/6u29UOexqrzbh6SFPWs3/bxqgmYMGb1F6amHZScujb6yJUy/M2AI0VbQkag==",
+      "path": "fontawesome.sharp.pro/5.15.4",
+      "hashPath": "fontawesome.sharp.pro.5.15.4.nupkg.sha512"
+    }
+  }
 }

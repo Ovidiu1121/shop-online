@@ -22,30 +22,19 @@ namespace OnlineShop
 
             this.Location = new Point(0, 120);
             this.Size = new Size(799, 336);
-            this.BackColor = Color.Gray; 
-            this.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
-
+            this.BackColor = Color.White; 
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left|AnchorStyles.Bottom;
+            this.Name="pnlProductsMain";
          
-
-            this.lblTitle = new Label();
-            this.Controls.Add(this.lblTitle);
-            this.lblTitle.Location = new Point(337, 16);
-            this.lblTitle.Size = new Size(134, 37);
-            this.lblTitle.Text="PRODUSE";
-            this.lblTitle.Font=new Font("Arial",14, FontStyle.Bold);
-
             this.pnlAllCards=new Panel();
-
             this.pnlAllCards.Parent=this;
-            //this.Controls.Add(this.pnlAllCards);
-            this.pnlAllCards.Location = new Point(12, 100);
+            this.pnlAllCards.Location = new Point(12, 56);
             this.pnlAllCards.BackColor = Color.White;
             this.pnlAllCards.Anchor = AnchorStyles.Right;
-            this.Dock=DockStyle.Fill;
 
-            this.createCards(4);
+            this.createCards(6);
 
-            this.pnlAllCards.Size=new Size(this.Width, 254);
+            this.pnlAllCards.Size=new Size(this.Width, 300);
 
 
 
@@ -65,7 +54,7 @@ namespace OnlineShop
                 pnlCard.Location = new Point(x, y);
                 this.pnlAllCards.Controls.Add(pnlCard);
 
-                x+=200;
+                x+=175;
 
                 if (ct%nrCollums==0)
                 {

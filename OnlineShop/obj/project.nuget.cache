@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uSzLYqcCASC48CQNFgM2QCC/U0radm5lPBg2E3/LuQsXh7EJ653PV9041FLYWUjAmHH9F/HLykNHH5B7RZ7yAg==",
+  "dgSpecHash": "0uAUaji/Rd4InKUM1vdXS+nuoVpILYDwyHkjTjQzOV/xvPJxwL/WaMeh9WwmroezAfcLAxQ2W26AoMjw3jesuQ==",
   "success": true,
   "projectFilePath": "C:\\Data\\programre-vizuala-csharp\\Incapsulare\\OnlineShop\\OnlineShop\\OnlineShop.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Utilizator\\.nuget\\packages\\fontawesome.sharp\\5.15.4\\fontawesome.sharp.5.15.4.nupkg.sha512",
+    "C:\\Users\\Utilizator\\.nuget\\packages\\fontawesome.sharp.pro\\5.15.4\\fontawesome.sharp.pro.5.15.4.nupkg.sha512"
+  ],
   "logs": []
 }

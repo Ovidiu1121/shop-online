@@ -10,25 +10,43 @@ namespace OnlineShop
     {
         FrmHome frmHome;
         ComboBox comboBox;
+        ControlProduct controlProduct=new ControlProduct();
 
         public PnlChooseProduct(FrmHome frmHome)
         {
             this.frmHome = frmHome;
 
-            this.Location = new Point(0, 79);
-            this.Size = new Size(799, 44);
-            this.BackColor = Color.Beige;
+            this.Location = new Point(0, 70);
+            this.Size = new Size(799, 48);
+            this.BackColor = Color.OrangeRed;
             this.Anchor = AnchorStyles.Top| AnchorStyles.Left | AnchorStyles.Right;
+            this.Name="pnlChooseProduct";
 
             this.comboBox = new ComboBox();
             this.Controls.Add(this.comboBox);
-            this.comboBox.Location = new Point(40, 7);
+            this.comboBox.Location = new Point(-450, 7);
             this.comboBox.Size = new Size(151, 28);
             this.comboBox.Text="Produse";
             this.comboBox.Anchor=AnchorStyles.None;
+            this.populateCmbBox();
 
 
         }
+
+        private void populateCmbBox()
+        {
+
+            List<string> categories = this.controlProduct.getAllCategories();
+
+            foreach(string category in categories)
+            {
+               this.comboBox.Items.Add(category);   
+            }
+
+        }
+
+
+
 
     }
 }

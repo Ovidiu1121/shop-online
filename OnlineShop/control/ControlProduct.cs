@@ -120,5 +120,21 @@ namespace OnlineShop
             return lista;
         }
 
+        public List<string> getAllCategories()
+        {
+
+            List<string> categories = new List<string>();
+
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (categories.Contains(lista[i].getCategory())==false)
+                {
+                    categories.Add(lista[i].getCategory());
+                }
+            }
+            return categories;
+        }
+
+
     }
 }
