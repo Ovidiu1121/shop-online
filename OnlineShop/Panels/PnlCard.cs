@@ -12,15 +12,19 @@ namespace OnlineShop
         Label lblPret;
         Label lblLei;
         PictureBox pictureBox1;
+        Product product;
+        FrmHome frmHome;
 
-        public PnlCard(Product product)
+        public PnlCard(Product product,FrmHome frmHome)
         {
+            this.product = product;
+            this.frmHome = frmHome;
 
             this.Size = new Size(160, 230);
             this.BackColor=Color.White;
             this.Name="pnlCard";
-            this.BorderStyle = BorderStyle.FixedSingle;
-            
+            this.BorderStyle = BorderStyle.Fixed3D;
+            this.Click+=new EventHandler(this.go_to_product_page_Click);
 
             this.lblDescriere = new Label();
             this.Controls.Add(this.lblDescriere);
@@ -46,7 +50,17 @@ namespace OnlineShop
             this.pictureBox1.SizeMode=PictureBoxSizeMode.Zoom;
             this.pictureBox1.Image=Image.FromFile(Application.StartupPath + @"/images/"+product.getImage().ToString()+".jpg");
             this.pictureBox1.Location = new Point(13, 13);
-            this.pictureBox1.Size = new Size(125, 83);
+            this.pictureBox1.Size = new Size(125, 120);
+            this.pictureBox1.Click+=new EventHandler(this.go_to_product_page_Click);
+        }
+
+        public void go_to_product_page_Click(object sender, EventArgs e)
+        {
+
+            this.frmHome.erase("pnlProductsMain");
+            this.frmHome.activePanel=new PnlProductPage(this.frmHome, this.product);
+            this.frmHome.Controls.Add(this.frmHome.activePanel);
+
         }
 
 

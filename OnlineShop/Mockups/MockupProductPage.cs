@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace OnlineShop
 {
-    public partial class MockupCard : Form
+    public partial class MockupProductPage : Form
     {
-        public MockupCard()
+        public MockupProductPage()
         {
             InitializeComponent();
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("da");
         }
     }
 }

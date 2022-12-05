@@ -12,22 +12,38 @@ namespace OnlineShop
 {
     public partial class FrmHome : Form
     {
+        public Panel activePanel;
         public Panel header;
         public Panel chooseProduct;
-        public Panel productsMain;
-
         public FrmHome()
         {
             InitializeComponent();
 
             this.header = new PnlHeader(this);
             this.chooseProduct=new PnlChooseProduct(this);
-            this.productsMain=new PnlProductsMain(this);
+            this.activePanel=new PnlProductsMain(this);
 
             this.Controls.Add(header);
             this.Controls.Add(chooseProduct);
-            this.Controls.Add(productsMain);
-
+            this.Controls.Add(activePanel);
+            
         }
+
+        public void erase(String name)
+        {
+            Control aux = null;
+
+            foreach (Control c in this.Controls)
+            {
+
+                if (c.Name.Equals(name))
+                {
+                    aux=c;
+                }
+            }
+
+            this.Controls.Remove(aux);
+        }
+
     }
 }

@@ -32,6 +32,8 @@ namespace OnlineShop
             this.pictureBox.Image=Image.FromFile(Application.StartupPath +@"/Logos-Icons/altex.png");
             this.pictureBox.Location = new Point(85, 15);
             this.pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureBox.Click+=new EventHandler(this.go_to_main_page_Click);
+
             this.txtBox = new TextBox();
             this.Controls.Add(this.txtBox);
             this.txtBox.Location = new Point(200, 31);
@@ -86,6 +88,14 @@ namespace OnlineShop
 
         }
 
+        public void go_to_main_page_Click(object sender,EventArgs e)
+        {
+
+            this.frmHome.Controls.Remove(this.frmHome.activePanel);
+            this.frmHome.activePanel=new PnlProductsMain(this.frmHome);
+            this.frmHome.Controls.Add(this.frmHome.activePanel);
+
+        }
 
     }
 }

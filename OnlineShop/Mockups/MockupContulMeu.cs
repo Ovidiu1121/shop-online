@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OnlineShop
+namespace OnlineShop.Mockups
 {
-    public partial class MockupCard : Form
+    public partial class MockupContulMeu : Form
     {
-        public MockupCard()
+        public MockupContulMeu()
         {
             InitializeComponent();
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("da");
         }
     }
 }
