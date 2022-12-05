@@ -53,7 +53,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(13, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 83);
+            this.pictureBox1.Size = new System.Drawing.Size(125, 103);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -78,11 +78,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 109);
+            this.label1.Location = new System.Drawing.Point(13, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 60);
             this.label1.TabIndex = 0;
             this.label1.Text = "descriere               \r\n\r\n\r\n";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // MockupCard
             // 

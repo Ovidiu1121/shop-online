@@ -18,13 +18,13 @@ namespace OnlineShop
 
             this.Location = new Point(0, 70);
             this.Size = new Size(799, 48);
-            this.BackColor = Color.OrangeRed;
+            this.BackColor=Color.Red;
             this.Anchor = AnchorStyles.Top| AnchorStyles.Left | AnchorStyles.Right;
             this.Name="pnlChooseProduct";
 
             this.comboBox = new ComboBox();
             this.Controls.Add(this.comboBox);
-            this.comboBox.Location = new Point(-450, 7);
+            this.comboBox.Location = new Point(-472, 7);
             this.comboBox.Size = new Size(151, 28);
             this.comboBox.Text="Produse";
             this.comboBox.Anchor=AnchorStyles.None;

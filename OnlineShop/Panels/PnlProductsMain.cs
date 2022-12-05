@@ -11,8 +11,8 @@ namespace OnlineShop
     {
         FrmHome frmHome;
         Label lblTitle;
-        Panel pnlCard;
         Panel pnlAllCards;
+        PictureBox pictureBox;
 
         ControlProduct control = new ControlProduct();
 
@@ -20,22 +20,27 @@ namespace OnlineShop
         {
             this.frmHome = frmHome;
 
-            this.Location = new Point(0, 120);
-            this.Size = new Size(799, 336);
+            this.Location = new Point(0, 118);
+            this.Size = new Size(1950, 1000);
             this.BackColor = Color.White; 
-            this.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left|AnchorStyles.Bottom;
             this.Name="pnlProductsMain";
          
             this.pnlAllCards=new Panel();
             this.pnlAllCards.Parent=this;
-            this.pnlAllCards.Location = new Point(12, 56);
+            this.pnlAllCards.Location = new Point(500, 400);
             this.pnlAllCards.BackColor = Color.White;
             this.pnlAllCards.Anchor = AnchorStyles.Right;
 
-            this.createCards(6);
+            this.createCards(9);
 
-            this.pnlAllCards.Size=new Size(this.Width, 300);
+            this.pnlAllCards.Size=new Size(900, 300);
 
+            this.pictureBox=new PictureBox();
+            this.Controls.Add(this.pictureBox);
+            this.pictureBox.Location=new Point(400, 0);
+            this.pictureBox.Size=new Size(1100, 370);
+            this.pictureBox.BorderStyle=BorderStyle.FixedSingle;
+            this.pictureBox.Image=Image.FromFile(Application.StartupPath+@"/Logos-Icons/ad1.jfif");
 
 
         }
@@ -50,7 +55,7 @@ namespace OnlineShop
             {
 
                 ct++;
-                PnlCard pnlCard = new PnlCard(p);
+                PnlCard pnlCard = new PnlCard(p,this.frmHome);
                 pnlCard.Location = new Point(x, y);
                 this.pnlAllCards.Controls.Add(pnlCard);
 
@@ -74,7 +79,7 @@ namespace OnlineShop
 
         }
 
-
+     
 
     }
 }
