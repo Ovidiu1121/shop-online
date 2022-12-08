@@ -19,6 +19,7 @@ namespace OnlineShop
         {
             InitializeComponent();
 
+
             this.header = new PnlHeader(this);
             this.chooseProduct=new PnlChooseProduct(this);
             this.activePanel=new PnlProductsMain(this);

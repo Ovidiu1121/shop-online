@@ -5,6 +5,9 @@
     <Compile Update="Forms\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Mockups\MockupInfoContulMeu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Mockups\MockupContulMeu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -16,6 +19,9 @@
     </Compile>
     <Compile Update="Mockups\MockupMain.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlContulMeu.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Update="Panels\PnlHeader.cs">
       <SubType>Component</SubType>
@@ -30,6 +36,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Panels\PnlProductPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlInfoContulMeu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="RoundedButton.cs">

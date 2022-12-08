@@ -113,9 +113,66 @@ namespace OnlineShop
             Customer old=returnCustomerById(id);
 
             old.setEmail(newCustomer.getEmail());
-            old.setName(newCustomer.getName());
+            old.setFirstName(newCustomer.getFirstName());
             old.setPassword(newCustomer.getPassword());
 
+        }
+
+        public bool isEmail(string email)
+        {
+
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getEmail().Equals(email)==true)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool isPhoneNumber(int phoneNumber)
+        {
+
+            for (int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getPhoneNumber().Equals(phoneNumber)==true)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
+        public int getLastId()
+        {
+            return lista[lista.Count-1].getId();
+        }
+
+        public Customer getCustomerByEmail(string email)
+        {
+
+            for(int i=0; i<lista.Count; i++)
+            {
+                if(lista[i].getEmail().Equals(email) == true)
+                {
+                    return lista[i];
+                }
+            }
+            return null;
+        }
+
+        public bool isParolaByEmail(string email,string parola)
+        {
+
+            Customer c=getCustomerByEmail(email);
+
+            if (c.getPassword().Equals(parola)==true)
+            {
+                return true;
+            }
+            return false;
         }
 
 

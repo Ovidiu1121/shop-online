@@ -12,19 +12,23 @@ namespace OnlineShop
         private int id;
         private string email;
         private string password;
-        private string name;
-      
+        private string firstName;
+        private string lastName;
+        private int phoneNumber;
+
         public Customer()
         {
 
         }
 
-        public Customer(int id,string email,string password,string name)
+        public Customer(int id,string email,string password,string firstName, string lastName, int phoneNumber)
         {
             this.id = id;
             this.email = email;
             this.password = password;
-            this.name = name;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.phoneNumber = phoneNumber;
         }
 
         public Customer(string c)
@@ -35,8 +39,9 @@ namespace OnlineShop
             this.id=int.Parse(a[0]);
             this.email = a[1];
             this.password = a[2];
-            this.name = a[3];
-
+            this.firstName = a[3];
+            this.lastName = a[4];
+            this.phoneNumber = int.Parse(a[5]);
         }
 
         public string describe()
@@ -47,7 +52,9 @@ namespace OnlineShop
             text+=this.id.ToString()+" ";
             text+=this.email+" ";
             text+=this.password+" ";
-            text+=this.name+"\n";
+            text+=this.firstName+" ";
+            text+=this.lastName+" ";
+            text+=this.phoneNumber.ToString()+"\n";
 
             return text;
         }
@@ -82,14 +89,34 @@ namespace OnlineShop
             this.password=password;
         }
 
-        public string getName()
+        public string getFirstName()
         {
-            return this.name;
+            return this.firstName;
         }
 
-        public void setName(string name)
+        public void setFirstName(string firstName)
         {
-            this.name=name;
+            this.firstName=firstName;
+        }
+
+        public string getLastName()
+        {
+            return this.lastName;
+        }
+
+        public void setLastName(string lastName)
+        {
+            this.lastName=lastName;
+        }
+
+        public int getPhoneNumber()
+        {
+            return this.phoneNumber;
+        }
+
+        public void setPhoneNumber(int phoneNumber)
+        {
+            this.phoneNumber=phoneNumber;
         }
 
         public string save()
@@ -97,9 +124,11 @@ namespace OnlineShop
 
             string text = "";
             text+=this.id.ToString()+",";
-            text+=this.name+",";
             text+=this.email+",";
-            text+=this.password;
+            text+=this.password+",";
+            text+=this.firstName+",";
+            text+=this.lastName+",";
+            text+=this.phoneNumber.ToString();
 
             return text;
         }
