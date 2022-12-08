@@ -17,7 +17,7 @@ namespace OnlineShop
             this.frmHome = frmHome;
 
             this.Location = new Point(0, 70);
-            this.Size = new Size(799, 48);
+            this.Size = new Size(810, 48);
             this.BackColor=Color.Red;
             this.Anchor = AnchorStyles.Top| AnchorStyles.Left | AnchorStyles.Right;
             this.Name="pnlChooseProduct";

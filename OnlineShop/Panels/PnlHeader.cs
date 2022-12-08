@@ -21,7 +21,7 @@ namespace OnlineShop
         {
 
             this.frmHome = frmHome;
-            this.Location = new Point(0, -3);
+            this.Location = new Point(0, 0);
             this.Size =new Size(frmHome.Width, 70);
             this.BackColor = Color.White;
             this.Name="pnlHeader";
@@ -29,8 +29,8 @@ namespace OnlineShop
 
             this.pictureBox = new PictureBox();
             this.Controls.Add(this.pictureBox);
-            this.pictureBox.Image=Image.FromFile(Application.StartupPath +@"/Logos-Icons/altex.png");
-            this.pictureBox.Location = new Point(85, 15);
+            this.pictureBox.Image=Image.FromFile(Application.StartupPath +@"/Logos-Icons/Altex.jpg");
+            this.pictureBox.Location = new Point(85, 5);
             this.pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox.Click+=new EventHandler(this.go_to_main_page_Click);
 
@@ -60,6 +60,7 @@ namespace OnlineShop
             this.btnCont.IconChar=FontAwesome.Sharp.IconChar.UserAlt;
             this.btnCont.IconSize=30;
             this.btnCont.TextImageRelation=TextImageRelation.ImageBeforeText;
+            this.btnCont.Click+=new EventHandler(this.go_to_contulMeu_Click);
 
             this.btnCos = new FontAwesome.Sharp.IconButton();
             this.Controls.Add(this.btnCos);
@@ -96,6 +97,16 @@ namespace OnlineShop
             this.frmHome.Controls.Add(this.frmHome.activePanel);
 
         }
+
+        public void go_to_contulMeu_Click(object sender,EventArgs e)
+        {
+
+            this.frmHome.Controls.Remove(this.frmHome.activePanel);
+            this.frmHome.activePanel=new PnlContulMeu(this.frmHome);
+            this.frmHome.Controls.Add(this.frmHome.activePanel);
+
+        }
+
 
     }
 }
