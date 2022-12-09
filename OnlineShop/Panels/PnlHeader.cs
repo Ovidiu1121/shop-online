@@ -16,10 +16,11 @@ namespace OnlineShop
         FontAwesome.Sharp.IconButton btnFavorite;
         FontAwesome.Sharp.IconButton btnCos; 
         PictureBox pictureBox;
+        Customer customer;
 
-        public PnlHeader(FrmHome frmHome)
+        public PnlHeader(FrmHome frmHome,Customer customer)
         {
-
+            this.customer = customer;
             this.frmHome = frmHome;
             this.Location = new Point(0, 0);
             this.Size =new Size(frmHome.Width, 70);
@@ -73,7 +74,7 @@ namespace OnlineShop
             this.btnCos.IconChar=FontAwesome.Sharp.IconChar.ShoppingCart;
             this.btnCos.IconSize=30;
             this.btnCos.TextImageRelation = TextImageRelation.ImageBeforeText;
-
+            this.btnCos.Click+=new EventHandler(this.go_to_cos_Click);
 
             this.btnFavorite = new FontAwesome.Sharp.IconButton();
             this.Controls.Add(this.btnFavorite);
@@ -93,13 +94,15 @@ namespace OnlineShop
         {
 
             this.frmHome.Controls.Remove(this.frmHome.activePanel);
-            this.frmHome.activePanel=new PnlProductsMain(this.frmHome);
+            this.frmHome.activePanel=new PnlProductsMain(this.frmHome,this.customer);
             this.frmHome.Controls.Add(this.frmHome.activePanel);
 
         }
 
         public void go_to_contulMeu_Click(object sender,EventArgs e)
-        {
+        { 
+
+            PnlContulMeu p=new PnlContulMeu(this.frmHome);
 
             this.frmHome.Controls.Remove(this.frmHome.activePanel);
             this.frmHome.activePanel=new PnlContulMeu(this.frmHome);
@@ -107,6 +110,14 @@ namespace OnlineShop
 
         }
 
+        public void go_to_cos_Click(object senderm,EventArgs e)
+        {
+
+            this.frmHome.Controls.Remove(this.frmHome.activePanel);
+            this.frmHome.activePanel=new PnlCos(this.frmHome,this.customer);
+            this.frmHome.Controls.Add(this.frmHome.activePanel);
+
+        }
 
     }
 }

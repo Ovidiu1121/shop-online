@@ -9,18 +9,24 @@ namespace OnlineShop
     internal class PnlProductPage:Panel
     {
 
-        Label lblDetails;
-        Label lblPrice;
-        Label lblLei;
-        Label lblGarantie1;
-        Label lblGarantie2;
-        FontAwesome.Sharp.IconButton btnFavorite;
-        PictureBox pictureBox;
-        FrmHome frmHome;
-        RoundedButton btnAdaugaInCos;
+        private Label lblDetails;
+        private Label lblPrice;
+        private Label lblLei;
+        private Label lblGarantie1;
+        private Label lblGarantie2;
+        private FontAwesome.Sharp.IconButton btnFavorite;
+        private PictureBox pictureBox;
+        private FrmHome frmHome;
+        private RoundedButton btnAdaugaInCos;
+        private Product product;
+        private Customer customer;
+        private Order order;
 
         public PnlProductPage(FrmHome frmHome,Product product)
         {
+            this.product = product;
+            this.customer = frmHome.getCustomer();
+            this.order = frmHome.getOrder();
             this.frmHome = frmHome;
             this.Location = new Point(0, 120);
             this.Size = new Size(1950, 1000);
@@ -81,6 +87,7 @@ namespace OnlineShop
             this.btnAdaugaInCos.FlatAppearance.BorderSize=0;
             this.btnAdaugaInCos.FlatStyle=FlatStyle.Flat;
             this.btnAdaugaInCos.Font=new Font("Cascadia Mono", 12, FontStyle.Regular);
+            this.btnAdaugaInCos.Click+=new EventHandler(this.create_order_Click);
 
             this.btnFavorite=new FontAwesome.Sharp.IconButton();
             this.Controls.Add(this.btnFavorite);
@@ -95,6 +102,26 @@ namespace OnlineShop
             this.btnFavorite.IconSize=40;
 
         }
+
+        private void create_order_Click(object sender,EventArgs e)
+        {
+            ControlOrderDetails controlOrderDetails=new ControlOrderDetails();
+            OrderDetails details=new OrderDetails(controlOrderDetails.generateNextId(),this.order.getId(),this.product.getId(),this.product.getPrice(),1);
+
+            if (controlOrderDetails.isOrderDetails(details.getOrderId(), details.getProdcutId())==false)
+            {
+                controlOrderDetails.add(details);
+                controlOrderDetails.salvareFisier();
+            }
+            else
+            {
+                controlOrderDetails.update(details);
+                controlOrderDetails.salvareFisier();
+            }
+
+
+        }
+
 
     }
 }

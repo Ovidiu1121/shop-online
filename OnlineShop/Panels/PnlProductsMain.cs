@@ -13,12 +13,13 @@ namespace OnlineShop
         Label lblTitle;
         Panel pnlAllCards;
         PictureBox pictureBox;
-
+        Customer customer;
         ControlProduct control = new ControlProduct();
 
-        public PnlProductsMain(FrmHome frmHome)
+        public PnlProductsMain(FrmHome frmHome,Customer customer)
         {
             this.frmHome = frmHome;
+            this.customer = customer;
 
             this.Location = new Point(0, 118);
             this.Size = new Size(1950, 1000);
@@ -55,7 +56,7 @@ namespace OnlineShop
             {
 
                 ct++;
-                PnlCard pnlCard = new PnlCard(p,this.frmHome);
+                PnlCard pnlCard = new PnlCard(p,this.frmHome,this.customer);
                 pnlCard.Location = new Point(x, y);
                 this.pnlAllCards.Controls.Add(pnlCard);
 

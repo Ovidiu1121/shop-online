@@ -14,11 +14,13 @@ namespace OnlineShop
         PictureBox pictureBox1;
         Product product;
         FrmHome frmHome;
+        Customer customer;
 
-        public PnlCard(Product product,FrmHome frmHome)
+        public PnlCard(Product product,FrmHome frmHome,Customer customer)
         {
             this.product = product;
             this.frmHome = frmHome;
+            this.customer = customer;
 
             this.Size = new Size(160, 230);
             this.BackColor=Color.White;

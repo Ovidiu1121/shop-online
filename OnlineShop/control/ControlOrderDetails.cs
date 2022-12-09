@@ -105,20 +105,45 @@ namespace OnlineShop
             return null;
         }
 
-        public void update(int id, OrderDetails newOrderDetails)
+        public int generateNextId()
         {
-
-            OrderDetails old = returnOrderDetailsById(id);
-
-            old.setOrderId(newOrderDetails.getOrderId());
-            old.setQuantity(newOrderDetails.getQuantity());
-            old.setPrice(newOrderDetails.getPrice());
-            old.setProductId(newOrderDetails.getProdcutId());
-
+            if (lista.Count==0)
+            {
+                return 1;
+            }else
+            {
+                return lista[lista.Count-1].getId()+1;
+            }
         }
 
+        public bool isOrderDetails(int orderId, int productId)
+        {
 
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getOrderId().Equals(orderId)==true&&lista[i].getProdcutId().Equals(productId)==true)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        public void update(OrderDetails newOrderDetails)
+        {
+
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getOrderId().Equals(newOrderDetails.getOrderId())==true&&lista[i].getProdcutId().Equals(newOrderDetails.getProdcutId())==true)
+                {
+                    OrderDetails old = lista[i];
+
+                    old.setPrice(old.getPrice()+newOrderDetails.getPrice());
+                    old.setQuantity(old.getQuantity()+newOrderDetails.getQuantity());
+                }
+            }
+
+        }
 
     }
 }

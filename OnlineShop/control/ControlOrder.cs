@@ -111,6 +111,10 @@ namespace OnlineShop
 
         }
 
+        public int getLastId()
+        {
+            return lista[lista.Count-1].getId();
+        }
 
     }
 }

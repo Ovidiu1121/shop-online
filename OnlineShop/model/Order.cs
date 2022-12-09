@@ -6,22 +6,25 @@ using System.Threading.Tasks;
 
 namespace OnlineShop
 {
-    internal class Order
+    public class Order
     {
         private int id;
         private int customer_id;
         private int ammount;
+        private bool finalizat;
+
 
         public Order()
         {
 
         }
 
-        public Order(int id,int customer_id,int amount)
+        public Order(int id,int customer_id,int amount,bool finalizat)
         {
             this.id = id;
             this.customer_id = customer_id;
             this.ammount = amount;
+            this.finalizat = finalizat;
         }
 
         public Order(string c)
@@ -31,6 +34,7 @@ namespace OnlineShop
             this.id=int.Parse(a[0]);
             this.customer_id=int.Parse(a[1]);   
             this.ammount=int.Parse(a[2]);
+            this.finalizat=bool.Parse(a[3]);
         }
 
         public string describe()
@@ -40,7 +44,8 @@ namespace OnlineShop
 
             text+=this.id.ToString()+" ";
             text+=this.customer_id.ToString()+" ";
-            text+=this.ammount.ToString()+"\n";
+            text+=this.ammount.ToString()+" ";
+            text+=this.finalizat.ToString()+"\n";
 
             return text;
         }
@@ -75,6 +80,16 @@ namespace OnlineShop
             this.ammount=ammount;
         }
 
+        public bool getFinalizare()
+        {
+            return this.finalizat;
+        }
+
+        public void setFinalizare(bool finalizat)
+        {
+            this.finalizat = finalizat;
+        }
+
         public string save()
         {
 
@@ -82,7 +97,8 @@ namespace OnlineShop
 
             text+=this.id.ToString()+",";
             text+=this.customer_id.ToString()+",";
-            text+=this.ammount.ToString();
+            text+=this.ammount.ToString()+",";
+            text+=this.finalizat.ToString();
 
             return text;
         }
