@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop
 {
-    internal class ControlCustomer
+    public class ControlCustomer
     {
         private List<Customer> lista=new List<Customer>();
 

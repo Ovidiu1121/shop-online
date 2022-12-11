@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop
 {
-    internal class Customer
+    public class Customer
     {
 
         private int id;
