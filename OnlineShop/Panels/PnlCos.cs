@@ -11,17 +11,10 @@ namespace OnlineShop
         private FrmHome frmHome;
         private Customer customer;
         private Label lblTitle1;
-        private Label lblTitle2;
-        private Label lblAsideCostProduse;
-        private Label lblAsideCostLivrare;
-        private Label lblCostProduse;
-        private Label lblCostLivrare;
-        private Label lblAsideTotal;
-        private Label lblLei1;
-        private Label lblLei2;
-        private Label lblLei3;
-        RoundedButton btnContinua;
-        private Panel pnlAllcards;
+        private Panel pnlAllCards;
+        private Panel pnlSumar;
+        private ControlProduct controlProduct=new ControlProduct();
+        private ControlOrderDetails controlOrderDetails=new ControlOrderDetails();  
 
         public PnlCos(FrmHome frmHome,Customer customer)
         {
@@ -31,7 +24,7 @@ namespace OnlineShop
             this.Location = new Point(0, 120);
             this.Size = new Size(1950, 1000);
             this.Dock = DockStyle.Fill;
-            this.BackColor = Color.Beige;
+            this.BackColor = Color.White;
             this.Name="pnlCos";
             
             this.lblTitle1 = new Label();
@@ -41,15 +34,41 @@ namespace OnlineShop
             this.lblTitle1.Text="Cosul meu de cumparaturi";
             this.lblTitle1.Font=new Font("Arial", 25, FontStyle.Regular);
 
-            this.pnlAllcards = new Panel();
-            this.Controls.Add(this.pnlAllcards);
-            this.pnlAllcards.Location = new Point(150, 220);
-            this.pnlAllcards.Size = new Size(1200, 800);
-            this.pnlAllcards.BackColor = Color.White;
+            this.pnlAllCards = new Panel();
+            this.Controls.Add(this.pnlAllCards);
+            this.pnlAllCards.Location = new Point(150, 220);
+            this.createCards();
+            this.pnlAllCards.Size = new Size(1050, 800);
+            this.pnlAllCards.BackColor = Color.White;
 
-
+            this.pnlSumar=new PnlSumarCos(frmHome);
+            this.Controls.Add(this.pnlSumar);
 
         }
+
+        public void createCards()
+        {
+            int x = 15, y = 15;
+
+            List<OrderDetails> orderDetails = this.controlOrderDetails.getList();
+
+            foreach (OrderDetails o in orderDetails)
+            {
+                Product product = this.controlProduct.returnProductById(o.getProdcutId());
+                PnlCardOrder pnlCard = new PnlCardOrder(this.frmHome,o,product);
+                pnlCard.Location = new Point(x, y);
+                this.pnlAllCards.Controls.Add(pnlCard);
+
+                y+=210;
+            }
+
+            if (y>this.pnlAllCards.Height)
+                {
+                    this.pnlAllCards.AutoScroll = true;
+                }
+
+        }
+
 
     }
 }

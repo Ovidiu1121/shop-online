@@ -138,12 +138,29 @@ namespace OnlineShop
                 {
                     OrderDetails old = lista[i];
 
-                    old.setPrice(old.getPrice()+newOrderDetails.getPrice());
                     old.setQuantity(old.getQuantity()+newOrderDetails.getQuantity());
                 }
             }
 
         }
+
+        public List<OrderDetails> getList()
+        {
+            return lista;
+        }
+
+        public int costTotalProduse()
+        {
+
+            int s = 0;
+
+            for(int i = 0; i<lista.Count; i++)
+            {
+                s+=lista[i].getPrice()*lista[i].getQuantity();
+            }
+            return s;
+        }
+
 
     }
 }

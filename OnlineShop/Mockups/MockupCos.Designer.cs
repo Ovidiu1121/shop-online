@@ -184,7 +184,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(25, 18);
+            this.label2.Location = new System.Drawing.Point(25, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(233, 41);
             this.label2.TabIndex = 0;
@@ -203,16 +203,16 @@
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(15, 329);
+            this.panel5.Location = new System.Drawing.Point(15, 392);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(770, 151);
+            this.panel5.Size = new System.Drawing.Size(770, 144);
             this.panel5.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.Location = new System.Drawing.Point(15, 215);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(770, 151);
+            this.panel4.Size = new System.Drawing.Size(770, 171);
             this.panel4.TabIndex = 1;
             // 
             // panel3

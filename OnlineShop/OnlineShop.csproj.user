@@ -53,7 +53,10 @@
     <Compile Update="Panels\PnlCos.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="PnlCardOrder.cs">
+    <Compile Update="Panels\PnlCardOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlSumarCos.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

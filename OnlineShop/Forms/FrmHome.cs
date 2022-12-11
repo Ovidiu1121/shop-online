@@ -25,12 +25,12 @@ namespace OnlineShop
         {
             InitializeComponent();
 
-            Product p=new Product(1," Laptop ultraportabil ASUS Zenbook Pro 14"," imag3", 2200, 70, "Laptop");
+            Product p=new Product(1," Laptop ultraportabil ASUS Zenbook Pro 14"," imag3", 1234, 70, "Laptop");
 
             this.header = new PnlHeader(this,customer);
             this.chooseProduct=new PnlChooseProduct(this);
-            //this.activePanel=new PnlProductsMain(this,customer);
-            this.activePanel=new PnlCardOrder(this, p);
+            //this.activePanel=new PnlProductsMain(this,this.customer);
+            this.activePanel=new PnlCos(this,this.customer);
 
             this.Controls.Add(header);
             this.Controls.Add(chooseProduct);
