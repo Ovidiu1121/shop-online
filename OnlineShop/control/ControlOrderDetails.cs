@@ -78,12 +78,12 @@ namespace OnlineShop
 
         }
 
-        public void delete(int id)
+        public void deleteByProductId(int productId)
         {
 
             for (int i = 0; i<=lista.Count-1; i++)
             {
-                if (lista[i].getId().Equals(id))
+                if (lista[i].getProdcutId().Equals(productId))
                 {
                     lista.RemoveAt(i);
                     i--;
@@ -139,6 +139,7 @@ namespace OnlineShop
                     OrderDetails old = lista[i];
 
                     old.setQuantity(old.getQuantity()+newOrderDetails.getQuantity());
+                    old.setPrice(old.getPrice()*old.getQuantity());
                 }
             }
 
@@ -156,7 +157,7 @@ namespace OnlineShop
 
             for(int i = 0; i<lista.Count; i++)
             {
-                s+=lista[i].getPrice()*lista[i].getQuantity();
+                s+=lista[i].getPrice();
             }
             return s;
         }
