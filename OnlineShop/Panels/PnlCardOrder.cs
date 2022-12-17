@@ -19,7 +19,7 @@ namespace OnlineShop
         private FontAwesome.Sharp.IconButton btnAddFavorite;
         private FrmHome frmHome;
         private Product product;
-
+        private ControlOrderDetails controlOrderDetails=new ControlOrderDetails();
 
         public PnlCardOrder(FrmHome frmHome, OrderDetails orderDetails,Product product)
         {
@@ -78,6 +78,7 @@ namespace OnlineShop
             this.btnStergere.IconSize=25;
             this.btnStergere.FlatAppearance.BorderSize=0;
             this.btnStergere.FlatStyle=FlatStyle.Flat;
+            this.btnStergere.Click+=new EventHandler(this.stergere_Click);
 
             this.numericUpDown=new NumericUpDown();
             this.Controls.Add(this.numericUpDown);
@@ -88,16 +89,16 @@ namespace OnlineShop
 
             this.lblProductPrice=new Label();
             this.Controls.Add(this.lblProductPrice);
-            this.lblProductPrice.Location=new Point(851, 12);
-            this.lblProductPrice.Size=new Size(90, 40);
+            this.lblProductPrice.Location=new Point(838, 12);
+            this.lblProductPrice.Size=new Size(97, 38);
             int price = (int)(product.getPrice()*numericUpDown.Value);
             this.lblProductPrice.Text=price.ToString();
-            this.lblProductPrice.Font=new Font("Arial", 18, FontStyle.Bold);
+            this.lblProductPrice.Font=new Font("Arial", 17, FontStyle.Bold);
 
             this.lblLei=new Label();
             this.Controls.Add(this.lblLei);
-            this.lblLei.Location=new Point(935, 12);
-            this.lblLei.Size=new Size(60, 38);
+            this.lblLei.Location=new Point(930, 12);
+            this.lblLei.Size=new Size(50, 38);
             this.lblLei.Text="lei";
             this.lblLei.Font=new Font("Arial",18, FontStyle.Bold);
 
@@ -110,6 +111,13 @@ namespace OnlineShop
 
         }
 
+        private void stergere_Click(object sender, EventArgs e)
+        {
+
+            this.controlOrderDetails.deleteByProductId(this.product.getId());
+            this.controlOrderDetails.salvareFisier();
+
+        }
 
 
     }
