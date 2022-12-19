@@ -23,7 +23,7 @@ namespace OnlineShop
 
             string line = "";
 
-            while ((line=reader.ReadLine())!=null)
+            while ((line=reader.ReadLine())!=null&&line.Length>2)
             {
                 Product p = new Product(line);
                 lista.Add(p);
@@ -135,6 +135,18 @@ namespace OnlineShop
             return categories;
         }
 
+        public int getPriceById(int id)
+        {
+
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getId().Equals(id))
+                {
+                    return this.lista[i].getPrice();
+                }
+            }
+            return -1;
+        }
 
     }
 }

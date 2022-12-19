@@ -23,7 +23,7 @@ namespace OnlineShop
 
             string line = "";
 
-            while ((line=reader.ReadLine())!=null)
+            while ((line=reader.ReadLine())!=null&&line.Length>2)
             {
                 Order o = new Order(line);
                 lista.Add(o);

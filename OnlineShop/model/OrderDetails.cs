@@ -118,10 +118,5 @@ namespace OnlineShop
             return text;
         }
 
-
-
-
-
-
     }
 }

@@ -12,6 +12,8 @@ namespace OnlineShop
         private List<OrderDetails> lista=new List<OrderDetails>();
         public string path = Application.StartupPath+@"/data_orderDetails/orderDetails.txt";
 
+        private ControlProduct controlProduct=new ControlProduct();
+
         public ControlOrderDetails()
         {
             this.load();
@@ -25,7 +27,7 @@ namespace OnlineShop
 
             string line = "";
 
-            while ((line=reader.ReadLine())!=null)
+            while ((line=reader.ReadLine())!=null&& line.Length>2)
             {
                 OrderDetails o = new OrderDetails(line);
                 lista.Add(o);
@@ -48,9 +50,12 @@ namespace OnlineShop
 
         public string toSave()
         {
-
             string text = "";
             int i = 0;
+            if (lista.Count==0)
+            {
+                return text;
+            }
 
             for (i = 0; i<lista.Count-1; i++)
             {
@@ -138,8 +143,26 @@ namespace OnlineShop
                 {
                     OrderDetails old = lista[i];
 
+                    int pret = this.controlProduct.getPriceById(old.getProdcutId());
+
                     old.setQuantity(old.getQuantity()+newOrderDetails.getQuantity());
-                    old.setPrice(old.getPrice()*old.getQuantity());
+                    old.setPrice(old.getPrice()+pret);
+                }
+            }
+
+        }
+
+        public void updateQuantityByProductId(int productId, int quantity)
+        {
+            
+            for(int i=0;i<lista.Count; i++)
+            {
+                if (lista[i].getProdcutId().Equals(productId))
+                {
+                    int firstPrice=this.controlProduct.getPriceById(productId);
+
+                    this.lista[i].setQuantity(quantity);
+                    this.lista[i].setPrice(firstPrice*quantity);
                 }
             }
 
@@ -160,6 +183,29 @@ namespace OnlineShop
                 s+=lista[i].getPrice();
             }
             return s;
+        }
+
+        public OrderDetails getOrderDetailsByProductId(int productId)
+        {
+
+            for (int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getProdcutId().Equals(productId))
+                {
+                    return this.lista[i];
+                }
+            }
+            return null;
+        }
+
+        public bool isEmpty()
+        {
+
+            if (lista.Count==0)
+            {
+                return true;
+            }
+            return false;
         }
 
 

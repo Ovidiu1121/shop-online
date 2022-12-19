@@ -27,7 +27,7 @@ namespace OnlineShop
 
             string line = "";
 
-            while ((line=reader.ReadLine())!=null)
+            while ((line=reader.ReadLine())!=null&&line.Length>2)
             {
                 Customer c = new Customer(line);
                 lista.Add(c);
