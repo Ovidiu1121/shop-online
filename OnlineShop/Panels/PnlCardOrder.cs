@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,13 @@ namespace OnlineShop
         private FrmHome frmHome;
         private Product product;
         private ControlOrderDetails controlOrderDetails=new ControlOrderDetails();
+        private OrderDetails orderDetails;  
 
         public PnlCardOrder(FrmHome frmHome, OrderDetails orderDetails,Product product)
         {
             this.frmHome = frmHome;
             this.product = product;
+            this.orderDetails = orderDetails;
 
             this.Size=new Size(1000, 200);
             this.Name="pnlCardOrder";
@@ -33,7 +36,8 @@ namespace OnlineShop
 
             this.pictureBox1 = new PictureBox();
             this.Controls.Add(this.pictureBox1);
-            this.pictureBox1.Image=Image.FromFile(Application.StartupPath+@"/images/imag2.jpg");
+            this.pictureBox1.Image=Image.FromFile(Application.StartupPath+@"/images/"+product.getImage()+ ".jpg");
+
             this.pictureBox1.Location=new Point(15, 8);
             this.pictureBox1.Size=new Size(213, 183);
             this.pictureBox1.SizeMode=PictureBoxSizeMode.Zoom;
@@ -86,6 +90,7 @@ namespace OnlineShop
             this.numericUpDown.Size=new Size(46, 23);
             this.numericUpDown.Value=orderDetails.getQuantity();
             this.numericUpDown.BorderStyle=BorderStyle.None;
+            this.numericUpDown.ValueChanged+=new EventHandler(this.update_quantity_ValueChanged);
 
             this.lblProductPrice=new Label();
             this.Controls.Add(this.lblProductPrice);
@@ -94,6 +99,7 @@ namespace OnlineShop
             int price = (int)(product.getPrice()*numericUpDown.Value);
             this.lblProductPrice.Text=price.ToString();
             this.lblProductPrice.Font=new Font("Arial", 17, FontStyle.Bold);
+            
 
             this.lblLei=new Label();
             this.Controls.Add(this.lblLei);
@@ -116,6 +122,27 @@ namespace OnlineShop
 
             this.controlOrderDetails.deleteByProductId(this.product.getId());
             this.controlOrderDetails.salvareFisier();
+
+            this.frmHome.Controls.Remove(this.frmHome.activePanel);
+            this.frmHome.activePanel=new PnlCos(this.frmHome, this.frmHome.getCustomer());
+            this.frmHome.Controls.Add(this.frmHome.activePanel);
+
+        }
+
+        private void update_quantity_ValueChanged(object sender, EventArgs e)
+        {
+            if ((int)this.numericUpDown.Value==0)
+            {
+                this.controlOrderDetails.deleteByProductId((int)this.product.getId());
+                this.controlOrderDetails.salvareFisier();
+            }
+
+            this.controlOrderDetails.updateQuantityByProductId(this.product.getId(),(int)this.numericUpDown.Value);
+            this.controlOrderDetails.salvareFisier();
+
+            this.frmHome.Controls.Remove(this.frmHome.activePanel);
+            this.frmHome.activePanel=new PnlCos(this.frmHome,this.frmHome.getCustomer());
+            this.frmHome.Controls.Add(this.frmHome.activePanel);
 
         }
 

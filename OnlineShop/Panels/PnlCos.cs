@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,7 @@ namespace OnlineShop
             this.pnlAllCards.Size = new Size(1050, 800);
             this.pnlAllCards.BackColor = Color.White;
 
+
             this.pnlSumar=new PnlSumarCos(frmHome);
             this.Controls.Add(this.pnlSumar);
 
@@ -52,20 +54,30 @@ namespace OnlineShop
 
             List<OrderDetails> orderDetails = this.controlOrderDetails.getList();
 
-            foreach (OrderDetails o in orderDetails)
+            if (this.controlOrderDetails.isEmpty()==true)
             {
-                Product product = this.controlProduct.returnProductById(o.getProdcutId());
-                PnlCardOrder pnlCard = new PnlCardOrder(this.frmHome,o,product);
-                pnlCard.Location = new Point(x, y);
-                this.pnlAllCards.Controls.Add(pnlCard);
-
-                y+=210;
+                return;
             }
+            else
+            {
+                foreach (OrderDetails o in orderDetails)
+                {
 
-            if (y>this.pnlAllCards.Height)
+                    Product product = this.controlProduct.returnProductById(o.getProdcutId());
+                    PnlCardOrder pnlCard = new PnlCardOrder(this.frmHome, o, product);
+                    pnlCard.Location = new Point(x, y);
+                    this.pnlAllCards.Controls.Add(pnlCard);
+
+                    y+=210;
+                }
+
+                if (y>this.pnlAllCards.Height)
                 {
                     this.pnlAllCards.AutoScroll = true;
                 }
+
+            }
+            
 
         }
 

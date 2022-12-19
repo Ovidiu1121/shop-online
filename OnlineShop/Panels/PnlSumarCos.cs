@@ -70,9 +70,16 @@ namespace OnlineShop
 
             this.lblCostLivrare=new Label();
             this.Controls.Add(this.lblCostLivrare);
-            this.lblCostLivrare.Location = new Point(523, 140);
+            this.lblCostLivrare.Location = new Point(495, 140);
             this.lblCostLivrare.Size = new Size(40, 20);
-            this.lblCostLivrare.Text="20";
+            if (this.lblCostProduse.Text.Equals("0"))
+            {
+                this.lblCostLivrare.Text="0";
+            }
+            else
+            {
+                this.lblCostLivrare.Text="20";
+            }
             this.lblCostLivrare.Font=new Font("Arial", 12, FontStyle.Regular);
 
             this.lblLei1=new Label();
