@@ -17,26 +17,30 @@ namespace OnlineShop
         public Panel activePanel;
         public Panel header;
         public Panel chooseProduct;
+        private Order order;
 
-        private  Customer customer=new Customer(4, "emailcustomer@dd.com", "parola", "mihai", "alex", 729376352);
-        private  Order order;
+        private Customer customer;
 
         public FrmHome()
         {
             InitializeComponent();
+            this.customer =new Customer(0, "0", "0", "0", "0", 0);
 
-            Product p=new Product(1," Laptop ultraportabil ASUS Zenbook Pro 14"," imag3", 1234, 70, "Laptop");
 
             this.header = new PnlHeader(this,customer);
             this.chooseProduct=new PnlChooseProduct(this);
-            //this.activePanel=new PnlProductsMain(this,this.customer);
-            this.activePanel=new PnlCos(this,this.customer);
+            this.activePanel=new PnlProductsMain(this, customer);
 
             this.Controls.Add(header);
             this.Controls.Add(chooseProduct);
             this.Controls.Add(activePanel);
 
-            order = new Order(controlOrder.getLastId(), customer.getId(), 0, false);
+            this.order = new Order(controlOrder.generateNextId(), customer.getId(), 0, false);
+            controlOrder.add(order);
+            controlOrder.salvareFisier();
+
+            this.FormClosing+=new FormClosingEventHandler(this.delete_undone_orders_Closing);
+          
         }
 
         public void erase(String name)
@@ -78,6 +82,24 @@ namespace OnlineShop
         public void setCustomer(Customer customer)
         {
             this.customer = customer;
+        }
+
+        public void delete_undone_orders_Closing(object sender, EventArgs e)
+        {
+            this.controlOrder.deleteAllFalse();
+            this.controlOrder.salvareFisier();
+
+        }
+
+        public bool logat()
+        {
+
+            if (this.customer.getId()==0)
+            {
+                return false;
+            }
+            return true;
+
         }
 
 

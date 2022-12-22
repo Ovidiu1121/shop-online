@@ -50,6 +50,11 @@ namespace OnlineShop
             string text = "";
             int i = 0;
 
+            if (lista.Count==0)
+            {
+                return text;
+            }
+
             for (i = 0; i<lista.Count-1; i++)
             {
                 text+=lista[i].save()+"\n";
@@ -101,20 +106,45 @@ namespace OnlineShop
             return null;
         }
 
-        public void update(int id, Order newOrder)
+        public int generateNextId()
+        {
+            if (lista.Count==0)
+            {
+                return 1;
+            }
+            else
+            {
+                return lista[lista.Count-1].getId()+1;
+            }
+        }
+
+        public bool isOrderById(int id)
         {
 
-            Order old = returnOrderById(id);
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getId().Equals(id))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
-            old.setCustomerId(newOrder.getCustomerId());
-            old.setAmmount(newOrder.getAmmount());
+        public void deleteAllFalse()
+        {
+
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getFinalizare().Equals(false))
+                {
+                    lista.RemoveAt(i);
+                    i--;
+                }
+            }
 
         }
 
-        public int getLastId()
-        {
-            return lista[lista.Count-1].getId();
-        }
 
     }
 }

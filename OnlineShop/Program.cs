@@ -10,11 +10,11 @@ namespace OnlineShop
         [STAThread]
         static void Main()
         {
+
+
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmHome());
-
-          
-
+                
 
         }
     }
