@@ -268,9 +268,10 @@ namespace OnlineShop
                     if (this.txtParola1.Text.Equals(this.txtConfirmPArola.Text)==true)
                     {
 
-                        Customer customer = new Customer(this.controlCustomer.getLastId()+1, this.txtAdresaEmail1.Text, this.txtParola1.Text, this.txtNume.Text, this.txtPrenume.Text, int.Parse(this.txtPhone.Text)); 
+                        Customer customer = new Customer(this.controlCustomer.generateNextId(), this.txtAdresaEmail1.Text, this.txtParola1.Text, this.txtNume.Text, this.txtPrenume.Text, int.Parse(this.txtPhone.Text)); 
                         this.controlCustomer.add(customer);
                         this.controlCustomer.salvareFisier();
+                        this.frmHome.setCustomer(customer);
 
                         this.frmHome.Controls.Remove(this.frmHome.activePanel);
                         this.frmHome.activePanel=new PnlInfoContulMeu(this.frmHome, customer);
@@ -297,7 +298,7 @@ namespace OnlineShop
 
         public void logare_Click(object sender, EventArgs e)
         {
-
+            
             if (this.txtAdresaEmail2.Text.Equals("")==false&&this.txtParola2.Text.Equals("")==false)
             {
                 if (controlCustomer.isEmail(this.txtAdresaEmail2.Text)==true&&this.controlCustomer.isParolaByEmail(this.txtAdresaEmail2.Text, this.txtParola2.Text)==true)
@@ -307,6 +308,11 @@ namespace OnlineShop
                     this.frmHome.Controls.Remove(this.frmHome.activePanel);
                     this.frmHome.activePanel=new PnlInfoContulMeu(this.frmHome, customer);
                     this.frmHome.Controls.Add(this.frmHome.activePanel);
+
+                    this.frmHome.setCustomer(customer);
+                    
+                   
+                 
                 }
                 else
                 {

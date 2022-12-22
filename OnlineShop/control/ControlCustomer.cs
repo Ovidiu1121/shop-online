@@ -54,7 +54,12 @@ namespace OnlineShop
             string text = "";
             int i = 0;
 
-            for(i = 0; i<lista.Count-1; i++)
+            if (lista.Count==0)
+            {
+                return text;
+            }
+
+            for (i = 0; i<lista.Count-1; i++)
             {
                 text+=lista[i].save()+"\n";
             }
@@ -145,9 +150,16 @@ namespace OnlineShop
 
         }
 
-        public int getLastId()
+        public int generateNextId()
         {
-            return lista[lista.Count-1].getId();
+            if (lista.Count==0)
+            {
+                return 1;
+            }
+            else
+            {
+                return lista[lista.Count-1].getId()+1;
+            }
         }
 
         public Customer getCustomerByEmail(string email)

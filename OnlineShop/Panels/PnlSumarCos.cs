@@ -21,7 +21,7 @@ namespace OnlineShop
         private Label lblLei3;
         RoundedButton btnContinua;
         private ControlOrderDetails controlOrderDetails=new ControlOrderDetails();
-
+        private ControlOrder controlOrder=new ControlOrder();
 
         public PnlSumarCos(FrmHome frmHome)
         {
@@ -123,7 +123,19 @@ namespace OnlineShop
             this.btnContinua.FlatAppearance.BorderSize=0;
             this.btnContinua.FlatStyle=FlatStyle.Flat;
             this.btnContinua.Font=new Font("Cascadia Mono", 15, FontStyle.Regular);
+            this.btnContinua.Click+=new EventHandler(this.send_order_Click);
 
+        }
+
+        private void send_order_Click(object sender,EventArgs e)
+        {
+
+          
+            Order order = this.frmHome.getOrder();
+
+            order.setAmmount(int.Parse(this.lblCostTotal.Text));
+            order.setFinalizare(true);
+            this.controlOrder.salvareFisier();
         }
 
 
