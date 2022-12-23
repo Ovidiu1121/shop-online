@@ -208,6 +208,13 @@ namespace OnlineShop
             return false;
         }
 
+        public void deleteAll()
+        {
+
+            this.lista.Clear();
+
+        }
+
 
     }
 }

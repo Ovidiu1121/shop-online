@@ -169,7 +169,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 520);
             this.Controls.Add(this.panel3);
+            this.MinimizeBox = false;
             this.Name = "MockupCardOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MockupCardOrder";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
