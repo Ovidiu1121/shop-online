@@ -19,17 +19,18 @@ namespace OnlineShop
         public Panel chooseProduct;
         private Order order;
 
-        private Customer customer;
+        private Customer customer=new Customer();
+
+        public bool logat = false;
 
         public FrmHome()
         {
             InitializeComponent();
-            this.customer =new Customer(0, "0", "0", "0", "0", 0);
 
-
+            
             this.header = new PnlHeader(this,customer);
             this.chooseProduct=new PnlChooseProduct(this);
-            this.activePanel=new PnlProductsMain(this, customer);
+            this.activePanel=new PnlContulMeu(this);
 
             this.Controls.Add(header);
             this.Controls.Add(chooseProduct);
@@ -82,6 +83,8 @@ namespace OnlineShop
         public void setCustomer(Customer customer)
         {
             this.customer = customer;
+            this.order.setCustomerId(customer.getId());
+            this.controlOrder.salvareFisier();
         }
 
         public void delete_undone_orders_Closing(object sender, EventArgs e)
@@ -91,16 +94,6 @@ namespace OnlineShop
 
         }
 
-        public bool logat()
-        {
-
-            if (this.customer.getId()==0)
-            {
-                return false;
-            }
-            return true;
-
-        }
 
 
     }

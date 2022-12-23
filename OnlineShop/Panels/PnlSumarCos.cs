@@ -127,15 +127,20 @@ namespace OnlineShop
 
         }
 
-        private void send_order_Click(object sender,EventArgs e)
+        private void send_order_Click(object sender, EventArgs e)
         {
+            if (this.frmHome.logat==true)
+            {
+                Order order = this.frmHome.getOrder();
 
-          
-            Order order = this.frmHome.getOrder();
-
-            order.setAmmount(int.Parse(this.lblCostTotal.Text));
-            order.setFinalizare(true);
-            this.controlOrder.salvareFisier();
+                order.setAmmount(int.Parse(this.lblCostTotal.Text));
+                order.setFinalizare(true);
+                this.controlOrder.salvareFisier();
+            }
+            else
+            {
+                MessageBox.Show("Nu sunteti logat.");
+            }
         }
 
 

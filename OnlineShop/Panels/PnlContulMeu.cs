@@ -34,14 +34,28 @@ namespace OnlineShop
         RoundedButton btnLogIn;
         CheckBox checkBox;
         FrmHome frmHome;
+        Customer customer;
         FontAwesome.Sharp.IconButton icon1;
         FontAwesome.Sharp.IconButton icon2;
         FontAwesome.Sharp.IconButton icon3;
-
         ControlCustomer controlCustomer = new ControlCustomer();
+        Panel a;
+        Panel b;
 
         public PnlContulMeu(FrmHome frmHome)
         {
+            a=frmHome.header;
+            b=frmHome.chooseProduct;
+            if (frmHome.logat==false)
+            {
+                a.Enabled=false;
+                b.Enabled=false;
+            }
+            else
+            {
+                a.Enabled = true;
+                b.Enabled = true;
+            }
 
             this.frmHome = frmHome;
             this.Name="pnlContulMeu";
@@ -267,7 +281,8 @@ namespace OnlineShop
 
                     if (this.txtParola1.Text.Equals(this.txtConfirmPArola.Text)==true)
                     {
-
+                        a.Enabled=true;
+                        b.Enabled=true;
                         Customer customer = new Customer(this.controlCustomer.generateNextId(), this.txtAdresaEmail1.Text, this.txtParola1.Text, this.txtNume.Text, this.txtPrenume.Text, int.Parse(this.txtPhone.Text)); 
                         this.controlCustomer.add(customer);
                         this.controlCustomer.salvareFisier();
@@ -303,16 +318,15 @@ namespace OnlineShop
             {
                 if (controlCustomer.isEmail(this.txtAdresaEmail2.Text)==true&&this.controlCustomer.isParolaByEmail(this.txtAdresaEmail2.Text, this.txtParola2.Text)==true)
                 {
+                    a.Enabled=true;
+                    b.Enabled=true;
                     Customer customer =this.controlCustomer.getCustomerByEmail(this.txtAdresaEmail2.Text);
-
                     this.frmHome.Controls.Remove(this.frmHome.activePanel);
                     this.frmHome.activePanel=new PnlInfoContulMeu(this.frmHome, customer);
                     this.frmHome.Controls.Add(this.frmHome.activePanel);
 
                     this.frmHome.setCustomer(customer);
-                    
-                   
-                 
+                    this.frmHome.logat=true;
                 }
                 else
                 {
