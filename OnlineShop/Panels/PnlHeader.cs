@@ -107,18 +107,17 @@ namespace OnlineShop
            
 
             this.frmHome.Controls.Remove(this.frmHome.activePanel);
-            this.frmHome.activePanel=new PnlContulMeu(this.frmHome);
-            this.frmHome.Controls.Add(this.frmHome.activePanel);
-            //if (this.frmHome.logat==false)
-            //{
-            //    this.frmHome.activePanel=new PnlContulMeu(this.frmHome);
-            //    this.frmHome.Controls.Add(this.frmHome.activePanel);
-            //}
-            //else
-            //{
-            //    this.frmHome.activePanel=new PnlInfoContulMeu(this.frmHome,this.customer);
-            //    this.frmHome.Controls.Add(this.frmHome.activePanel);
-            //}
+
+            if (this.frmHome.logat==false)
+            {
+                this.frmHome.activePanel=new PnlContulMeu(this.frmHome);
+                this.frmHome.Controls.Add(this.frmHome.activePanel);
+            }
+            else
+            {
+                this.frmHome.activePanel=new PnlInfoContulMeu(this.frmHome, this.frmHome.getCustomer());
+                this.frmHome.Controls.Add(this.frmHome.activePanel);
+            }
         }
 
         public void go_to_cos_Click(object senderm,EventArgs e)
