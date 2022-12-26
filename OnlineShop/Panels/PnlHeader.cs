@@ -104,8 +104,6 @@ namespace OnlineShop
 
             PnlContulMeu p=new PnlContulMeu(this.frmHome);
 
-           
-
             this.frmHome.Controls.Remove(this.frmHome.activePanel);
 
             if (this.frmHome.logat==false)

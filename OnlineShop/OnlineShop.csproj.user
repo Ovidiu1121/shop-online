@@ -5,6 +5,12 @@
     <Compile Update="Forms\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MockupCardIstoricComanda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Mockups\MockupIstoricComenzi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Mockups\MockupEmptyCart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Panels\PnlSumarCos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlCardIstoricComanda.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

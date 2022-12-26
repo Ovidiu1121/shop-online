@@ -15,7 +15,8 @@ namespace OnlineShop
         private Panel pnlAllCards;
         private Panel pnlSumar;
         private ControlProduct controlProduct=new ControlProduct();
-        private ControlOrderDetails controlOrderDetails=new ControlOrderDetails();  
+        private ControlOrderDetails controlOrderDetails=new ControlOrderDetails();
+        private Label lblCosGol;
 
         public PnlCos(FrmHome frmHome,Customer customer)
         {
@@ -28,20 +29,33 @@ namespace OnlineShop
             this.BackColor = Color.White;
             this.Name="pnlCos";
             
-            this.lblTitle1 = new Label();
-            this.Controls.Add(this.lblTitle1);
-            this.lblTitle1.Location = new Point(150, 150);
-            this.lblTitle1.Size = new Size(600, 54);
-            this.lblTitle1.Text="Cosul meu de cumparaturi";
-            this.lblTitle1.Font=new Font("Arial", 25, FontStyle.Regular);
+            
+            if (this.controlOrderDetails.isEmpty().Equals(true))
+            {
+                this.lblCosGol=new Label();
+                this.Controls.Add(this.lblCosGol);
+                this.lblCosGol.Location = new Point(160, 234);
+                this.lblCosGol.Size = new Size(700, 54);
+                this.lblCosGol.Text="Cosul dvs. de cumparaturi este gol.";
+                this.lblCosGol.Font=new Font("Arial", 25, FontStyle.Regular);
 
-            this.pnlAllCards = new Panel();
-            this.Controls.Add(this.pnlAllCards);
-            this.pnlAllCards.Location = new Point(150, 220);
-            this.createCards();
-            this.pnlAllCards.Size = new Size(1050, 800);
-            this.pnlAllCards.BackColor = Color.White;
+            }
+            else
+            {
+                this.lblTitle1 = new Label();
+                this.Controls.Add(this.lblTitle1);
+                this.lblTitle1.Location = new Point(150, 150);
+                this.lblTitle1.Size = new Size(600, 54);
+                this.lblTitle1.Text="Cosul meu de cumparaturi";
+                this.lblTitle1.Font=new Font("Arial", 25, FontStyle.Regular);
 
+                this.pnlAllCards = new Panel();
+                this.Controls.Add(this.pnlAllCards);
+                this.pnlAllCards.Location = new Point(150, 220);
+                this.createCards();
+                this.pnlAllCards.Size = new Size(1050, 800);
+                this.pnlAllCards.BackColor = Color.White;
+            }
 
             this.pnlSumar=new PnlSumarCos(frmHome);
             this.Controls.Add(this.pnlSumar);
