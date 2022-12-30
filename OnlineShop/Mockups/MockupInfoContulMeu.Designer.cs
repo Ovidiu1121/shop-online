@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -51,8 +49,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.button2);
@@ -73,28 +69,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1195, 606);
             this.panel1.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(947, 244);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 40);
-            this.button4.TabIndex = 40;
-            this.button4.Text = "Aici";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(947, 190);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(129, 28);
-            this.label13.TabIndex = 39;
-            this.label13.Text = "Iesiti din cont";
             // 
             // button3
             // 
@@ -277,7 +251,5 @@
         private Label label1;
         private Button button3;
         private Label label12;
-        private Button button4;
-        private Label label13;
     }
 }

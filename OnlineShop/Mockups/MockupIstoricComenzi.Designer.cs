@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(93, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 46);
+            this.label1.Size = new System.Drawing.Size(146, 45);
             this.label1.TabIndex = 1;
             this.label1.Text = "Comenzi";
             // 
@@ -58,33 +58,33 @@
             this.panel1.Size = new System.Drawing.Size(967, 408);
             this.panel1.TabIndex = 2;
             // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(13, 208);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(939, 81);
+            this.panel5.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(13, 110);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(939, 81);
+            this.panel4.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(13, 305);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(939, 81);
+            this.panel3.TabIndex = 1;
+            // 
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(13, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(939, 81);
             this.panel2.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(13, 274);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(939, 81);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(13, 100);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(939, 81);
-            this.panel4.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(13, 187);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(939, 81);
-            this.panel5.TabIndex = 3;
             // 
             // MockupIstoricComenzi
             // 
