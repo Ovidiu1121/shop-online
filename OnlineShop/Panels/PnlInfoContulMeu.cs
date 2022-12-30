@@ -148,11 +148,17 @@ namespace OnlineShop
             this.btnIstoricComenzi.FlatAppearance.BorderSize=0;
             this.btnIstoricComenzi.FlatStyle=FlatStyle.Flat;
             this.btnIstoricComenzi.Font=new Font("Cascadia Mono", 12, FontStyle.Regular);
-
+            this.btnIstoricComenzi.Click+=new EventHandler(this.istoric_comenzi_Click);
          
         }
 
+        private void istoric_comenzi_Click(object sender, EventArgs e)
+        {
 
+            this.frmHome.Controls.Remove(this.frmHome.activePanel);
+            this.frmHome.activePanel=new PnlIstoricComenzi(this.frmHome,this.frmHome.getCustomer());
+            this.frmHome.Controls.Add(this.frmHome.activePanel);
+        }
 
 
 

@@ -145,6 +145,20 @@ namespace OnlineShop
 
         }
 
+        public List<Order> getList()
+        {
+            return lista;
+        }
+
+        public bool isEmpty()
+        {
+
+            if (lista.Count==0)
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }

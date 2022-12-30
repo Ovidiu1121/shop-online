@@ -13,15 +13,11 @@ namespace OnlineShop
     public partial class FrmHome : Form
     {
         ControlOrder controlOrder=new ControlOrder();
-        
         public Panel activePanel;
         public Panel header;
         public Panel chooseProduct;
         private Order order;
-
-        //private Customer customer=new Customer();
-        private Customer customer=new Customer(1,"ae","we","ds","sad",22);
-
+        private Customer customer=new Customer();
         public bool logat = false;
 
         public FrmHome()
@@ -31,7 +27,9 @@ namespace OnlineShop
             
             this.header = new PnlHeader(this,customer);
             this.chooseProduct=new PnlChooseProduct(this);
-            this.activePanel=new PnlInfoContulMeu(this,customer);
+            //this.activePanel=new PnlContulMeu(this);
+            customer=new Customer(1,"eqw","d","d","ds",23);
+            this.activePanel = new PnlIstoricComenzi(this, customer);
 
             this.Controls.Add(header);
             this.Controls.Add(chooseProduct);
