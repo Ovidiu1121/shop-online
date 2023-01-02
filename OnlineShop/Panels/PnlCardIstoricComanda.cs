@@ -8,7 +8,6 @@ namespace OnlineShop
 {
     internal class PnlCardIstoricComanda:Panel
     {
-        //DateTime currentDateTime = DateTime.Now;
 
         private Label lblComandaNr;
         private Label lblNr;
@@ -47,6 +46,16 @@ namespace OnlineShop
             this.btnDetalii.FlatStyle=FlatStyle.Flat;
             this.btnDetalii.ForeColor=Color.Red;
             this.btnDetalii.Font=new Font("Cascadia Mono", 9, FontStyle.Regular);
+            this.btnDetalii.Click+=new EventHandler(this.detalii_comanda_Click);
+
+        }
+
+        private void detalii_comanda_Click(object sender ,EventArgs e)
+        {
+            this.frmHome.Controls.Remove(this.frmHome.activePanel);
+            this.frmHome.activePanel=new PnlDetaliiComandaIstoric(this.frmHome, this.order);
+            this.frmHome.Controls.Add(this.frmHome.activePanel);
+
 
         }
 
