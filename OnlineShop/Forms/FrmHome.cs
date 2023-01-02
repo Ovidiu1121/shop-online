@@ -27,9 +27,7 @@ namespace OnlineShop
             
             this.header = new PnlHeader(this,customer);
             this.chooseProduct=new PnlChooseProduct(this);
-            //this.activePanel=new PnlContulMeu(this);
-            customer=new Customer(1,"eqw","d","d","ds",23);
-            this.activePanel = new PnlIstoricComenzi(this, customer);
+            this.activePanel=new PnlContulMeu(this);
 
             this.Controls.Add(header);
             this.Controls.Add(chooseProduct);

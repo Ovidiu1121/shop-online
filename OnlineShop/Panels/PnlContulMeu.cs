@@ -41,7 +41,6 @@ namespace OnlineShop
         ControlCustomer controlCustomer = new ControlCustomer();
         Panel a;
         Panel b;
-        private ControlOrderDetails controlOrderDetails=new ControlOrderDetails();
 
         public PnlContulMeu(FrmHome frmHome)
         {
@@ -49,8 +48,8 @@ namespace OnlineShop
             b=frmHome.chooseProduct;
             if (frmHome.logat==false)
             {
-                //a.Enabled=false;
-                //b.Enabled=false;
+                a.Enabled=false;
+                b.Enabled=false;
             }
             else
             {
@@ -282,8 +281,6 @@ namespace OnlineShop
 
                     if (this.txtParola1.Text.Equals(this.txtConfirmPArola.Text)==true)
                     {
-                        this.controlOrderDetails.deleteAll();
-                        this.controlOrderDetails.salvareFisier();
                         a.Enabled=true;
                         b.Enabled=true;
                         Customer customer = new Customer(this.controlCustomer.generateNextId(), this.txtAdresaEmail1.Text, this.txtParola1.Text, this.txtNume.Text, this.txtPrenume.Text, int.Parse(this.txtPhone.Text)); 
@@ -321,8 +318,6 @@ namespace OnlineShop
             {
                 if (controlCustomer.isEmail(this.txtAdresaEmail2.Text)==true&&this.controlCustomer.isParolaByEmail(this.txtAdresaEmail2.Text, this.txtParola2.Text)==true)
                 {
-                    this.controlOrderDetails.deleteAll();
-                    this.controlOrderDetails.salvareFisier();
                     a.Enabled=true;
                     b.Enabled=true;
                     Customer customer =this.controlCustomer.getCustomerByEmail(this.txtAdresaEmail2.Text);
