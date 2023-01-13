@@ -30,7 +30,7 @@ namespace OnlineShop
             this.Name="pnlCos";
             
             
-            if (this.controlOrderDetails.isEmpty().Equals(true))
+            if (this.controlOrderDetails.existOrderDetails_byOrderId(frmHome.getOrder().getId()).Equals(false))
             {
                 this.lblCosGol=new Label();
                 this.Controls.Add(this.lblCosGol);
@@ -76,13 +76,15 @@ namespace OnlineShop
             {
                 foreach (OrderDetails o in orderDetails)
                 {
+                    if (o.getOrderId().Equals(this.frmHome.getOrder().getId()))
+                    {
+                        Product product = this.controlProduct.returnProductById(o.getProdcutId());
+                        PnlCardOrder pnlCard = new PnlCardOrder(this.frmHome, o, product);
+                        pnlCard.Location = new Point(x, y);
+                        this.pnlAllCards.Controls.Add(pnlCard);
 
-                    Product product = this.controlProduct.returnProductById(o.getProdcutId());
-                    PnlCardOrder pnlCard = new PnlCardOrder(this.frmHome, o, product);
-                    pnlCard.Location = new Point(x, y);
-                    this.pnlAllCards.Controls.Add(pnlCard);
-
-                    y+=210;
+                        y+=210;
+                    }
                 }
 
                 if (y>this.pnlAllCards.Height)

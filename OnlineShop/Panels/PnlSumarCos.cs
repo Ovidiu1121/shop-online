@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,7 +66,7 @@ namespace OnlineShop
             this.Controls.Add(this.lblCostProduse);
             this.lblCostProduse.Location = new Point(495, 88);
             this.lblCostProduse.Size = new Size(70, 20);
-            this.lblCostProduse.Text=this.controlOrderDetails.costTotalProduse().ToString();
+            this.lblCostProduse.Text=this.controlOrderDetails.costTotalProduse(frmHome.getOrder().getId()).ToString();
             this.lblCostProduse.Font=new Font("Arial", 12, FontStyle.Regular);
 
             this.lblCostLivrare=new Label();
@@ -129,18 +130,21 @@ namespace OnlineShop
 
         private void send_order_Click(object sender, EventArgs e)
         {
-            if (this.frmHome.logat==true)
-            {
-                Order order = this.frmHome.getOrder();
+            Order order = this.frmHome.getOrder();
 
-                order.setAmmount(int.Parse(this.lblCostTotal.Text));
-                order.setFinalizare(true);
-                this.controlOrder.salvareFisier();
-            }
-            else
-            {
-                MessageBox.Show("Nu sunteti logat.");
-            }
+            this.controlOrder.updateAmmount(order.getId(), int.Parse(this.lblCostTotal.Text));
+            this.controlOrder.updateFinalizareTrue(order.getId());
+            order.setFinalizare(true);
+            order.setAmmount(int.Parse(this.lblCostTotal.Text));
+            this.controlOrder.salvareFisier();
+
+            Order nextOrder=new Order(controlOrder.generateNextId(), this.frmHome.getCustomer().getId(), 0, false);
+
+            this.frmHome.setOrder(nextOrder);
+            controlOrder.add(nextOrder);
+            controlOrder.salvareFisier();
+            //change pnlCos with Pnl( text: comanda a fost trimisa->refresh page-> 0 items in cart)
+
         }
 
 
