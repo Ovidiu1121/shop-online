@@ -11,8 +11,10 @@ namespace OnlineShop
         private Panel pnlAllCards;
         private Label lblTitle;
         private FrmHome frmHome;
+        private ControlOrderDetails controlOrderDetails=new ControlOrderDetails();
         private ControlOrder controlOrder=new ControlOrder();
         private Customer customer;
+        private Label lblEmpty;
 
         public PnlIstoricComenzi(FrmHome frmHome,Customer customer)
         {
@@ -24,19 +26,31 @@ namespace OnlineShop
             this.BackColor = Color.White;
             this.Name="PnlIstoricComenzi";
 
-            this.lblTitle = new Label();
-            this.Controls.Add(this.lblTitle);
-            this.lblTitle.Location = new Point(100, 40);
-            this.lblTitle.Size = new Size(160, 45);
-            this.lblTitle.Text="Comenzi";
-            this.lblTitle.Font=new Font("Arial", 20, FontStyle.Bold);
+            if (this.controlOrder.isEmpty().Equals(true))
+            {
+                this.lblEmpty = new Label();
+                this.Controls.Add(this.lblEmpty);
+                this.lblEmpty.Location = new Point(100, 95);
+                this.lblEmpty.Size = new Size(500, 50);
+                this.lblEmpty.Text="Nu ai plasat nici o comanda.";
+                this.lblEmpty.Font=new Font("Arial", 20, FontStyle.Regular);
+            }
+            else
+            {
+                this.lblTitle = new Label();
+                this.Controls.Add(this.lblTitle);
+                this.lblTitle.Location = new Point(100, 40);
+                this.lblTitle.Size = new Size(160, 45);
+                this.lblTitle.Text="Comenzi";
+                this.lblTitle.Font=new Font("Arial", 20, FontStyle.Bold);
 
-            this.pnlAllCards = new Panel();
-            this.Controls.Add(this.pnlAllCards);
-            this.pnlAllCards.Location = new Point(100, 95);
-            this.createCards();
-            this.pnlAllCards.Size=new Size(1220, 750);
-            this.BackColor= Color.White;
+                this.pnlAllCards = new Panel();
+                this.Controls.Add(this.pnlAllCards);
+                this.pnlAllCards.Location = new Point(100, 95);
+                this.createCards();
+                this.pnlAllCards.Size=new Size(1220, 750);
+                this.BackColor= Color.White;
+            }
 
         }
 
@@ -46,31 +60,26 @@ namespace OnlineShop
 
             List<Order> order = this.controlOrder.getList();
 
-            if (this.controlOrder.isEmpty()==true)
-            {
-                return;
-            }
-            else
-            {
                 foreach (Order o in order)
                 {
-                    if (this.customer.getId().Equals(o.getCustomerId())==true)
+                    if (o.getFinalizare().Equals(true))
                     {
-                        PnlCardIstoricComanda pnlCard = new PnlCardIstoricComanda(this.frmHome, o);
-                        pnlCard.Location = new Point(x, y);
-                        this.pnlAllCards.Controls.Add(pnlCard);
+                        if (this.customer.getId().Equals(o.getCustomerId())==true)
+                        {
+                            PnlCardIstoricComanda pnlCard = new PnlCardIstoricComanda(this.frmHome, o);
+                            pnlCard.Location = new Point(x, y);
+                            this.pnlAllCards.Controls.Add(pnlCard);
 
-                        y+=100;
+                            y+=100;
+                        }
                     }
-                    
+
                 }
 
                 if (y>this.pnlAllCards.Height)
                 {
                     this.pnlAllCards.AutoScroll = true;
                 }
-
-            }
 
 
         }

@@ -153,11 +153,37 @@ namespace OnlineShop
         public bool isEmpty()
         {
 
-            if (lista.Count==0)
+            if (lista.Count.Equals(1)&&lista[0].getFinalizare().Equals(false))
             {
                 return true;
             }
             return false;
+        }
+
+        public void updateFinalizareTrue(int orderId)
+        {
+
+            for (int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getId().Equals(orderId))
+                {
+                    lista[i].setFinalizare(true);
+                }
+            }
+
+        }
+
+        public void updateAmmount(int orderId, int ammount)
+        {
+
+            for (int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getId().Equals(orderId))
+                {
+                    lista[i].setAmmount(ammount);
+                }
+            }
+
         }
 
     }

@@ -173,14 +173,17 @@ namespace OnlineShop
             return lista;
         }
 
-        public int costTotalProduse()
+        public int costTotalProduse(int orderId)
         {
 
             int s = 0;
 
             for(int i = 0; i<lista.Count; i++)
             {
-                s+=lista[i].getPrice();
+                if (lista[i].getOrderId().Equals(orderId))
+                {
+                    s+=lista[i].getPrice();
+                }
             }
             return s;
         }
@@ -213,6 +216,19 @@ namespace OnlineShop
 
             this.lista.Clear();
 
+        }
+
+        public bool existOrderDetails_byOrderId(int orderId)
+        {
+
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getOrderId().Equals(orderId))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
