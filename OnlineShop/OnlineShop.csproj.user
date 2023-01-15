@@ -5,6 +5,9 @@
     <Compile Update="Forms\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Mockups\MockupSearchedProdusPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Mockups\MockupCardDetaliiComanda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +84,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Panels\PnlCardDetaliiComanda.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\PnlProductSearched.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
