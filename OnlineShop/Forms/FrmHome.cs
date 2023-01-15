@@ -24,11 +24,11 @@ namespace OnlineShop
         {
             InitializeComponent();
 
-            
+            this.BackColor=Color.White;
             this.header = new PnlHeader(this,customer);
             this.chooseProduct=new PnlChooseProduct(this);
             this.activePanel=new PnlContulMeu(this);
-
+            
             this.Controls.Add(header);
             this.Controls.Add(chooseProduct);
             this.Controls.Add(activePanel);

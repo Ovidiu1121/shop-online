@@ -129,12 +129,14 @@ namespace OnlineShop
 
             foreach (OrderDetails o in orderDetails)
             {
+                if (o.getOrderId().Equals(this.order.getId()))
+                {
+                    PnlCardDetaliiComanda pnlCard = new PnlCardDetaliiComanda(this.frmHome, o);
+                    pnlCard.Location = new Point(x, y);
+                    this.pnlAllCards.Controls.Add(pnlCard);
 
-                PnlCardDetaliiComanda pnlCard = new PnlCardDetaliiComanda(this.frmHome, o);
-                pnlCard.Location = new Point(x, y);
-                this.pnlAllCards.Controls.Add(pnlCard);
-
-                y+=160;
+                    y+=160;
+                }
             }
 
             if (y>this.pnlAllCards.Height)

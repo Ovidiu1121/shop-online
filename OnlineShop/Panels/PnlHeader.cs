@@ -49,6 +49,7 @@ namespace OnlineShop
             this.btnSearch.Size = new Size(37, 27);
             this.btnSearch.IconChar=FontAwesome.Sharp.IconChar.Search;
             this.btnSearch.IconSize=25;
+            this.btnSearch.Click+=new EventHandler(this.search_product_Click);
 
             this.btnCont = new FontAwesome.Sharp.IconButton();
             this.Controls.Add(this.btnCont);
@@ -124,6 +125,24 @@ namespace OnlineShop
             this.frmHome.Controls.Remove(this.frmHome.activePanel);
             this.frmHome.activePanel=new PnlCos(this.frmHome,this.customer);
             this.frmHome.Controls.Add(this.frmHome.activePanel);
+
+        }
+
+        public void search_product_Click(object sender, EventArgs e)
+        {
+            ControlProduct controlProduct=new ControlProduct();
+
+            Product p = controlProduct.returnProdByString(this.txtBox.Text.ToString());
+
+            if (p!=null)
+            {
+                if (this.txtBox.Text.Equals("")==false)
+                {
+                    this.frmHome.Controls.Remove(this.frmHome.activePanel);
+                    this.frmHome.activePanel=new PnlProductSearched(this.frmHome, p);
+                    this.frmHome.Controls.Add(this.frmHome.activePanel);
+                }
+            }
 
         }
 

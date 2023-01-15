@@ -148,5 +148,17 @@ namespace OnlineShop
             return -1;
         }
 
+        public Product returnProdByString(string description)
+        {
+            for (int i = 0; i<lista.Count; i++)
+            {
+                if (lista[i].getName().Contains(description).Equals(true))
+                {
+                    return lista[i];
+                }
+            }
+            return null;
+        }
+
     }
 }
